@@ -2,11 +2,15 @@
   href="#"
   class="list-group-item clearfix">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">Movie_Name</h4>
-    <p class ="list-group-item-text">Movie_Desc</p>
-    <p class = "list-group-item-text">Runtime??</p>
+    <h4 class="list-group-item-heading">{{ movie.name }} </h4>
+    <p class ="list-group-item-text">{{ movie.description }}</p>
+    <p class = "list-group-item-text">{{movie.runTime}}min</p>
   </div>
   <span class="pull-right">
-    <p>Image</p>
+    <img
+    [src]="movie.imagePath"
+    alt="{{movie.name}}"
+    class="img-responsive"
+    style="max-height: 65px;">
   </span>
 </a>

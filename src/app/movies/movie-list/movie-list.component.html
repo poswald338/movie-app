@@ -1,4 +1,7 @@
 <p>movie-list works!</p>
 <div class="col-xs-12">
-  <app-movie></app-movie>
+  <app-movie
+  *ngFor="let movieEl of movies; let i = index"
+  [movie]="movieEl"
+  [index]="i"></app-movie>
 </div>
