@@ -1,14 +1,15 @@
-<app-header
-  [moviesClicked]="moviesClicked"
+<app-header>
+  <!-- [moviesClicked]="moviesClicked"
   (showMovies)="setMoviesClicked($event)"
   [watchListClicked]="watchListClicked"
-  (showWatchlist)="setWatchListClicked($event)">
+  (showWatchlist)="setWatchListClicked($event)" -->
 </app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-movies *ngIf="moviesClicked"></app-movies>
-      <app-watch-list *ngIf="watchListClicked === true"></app-watch-list>
+      <router-outlet></router-outlet>
+      <!-- <app-movies *ngIf="moviesClicked"></app-movies>
+      <app-watch-list *ngIf="watchListClicked === true"></app-watch-list> -->
     </div>
   </div>
 </div>

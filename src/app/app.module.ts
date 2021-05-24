@@ -8,6 +8,7 @@ import { WatchListComponent } from './watch-list/watch-list.component';
 import { MovieComponent } from './movies/movie-list/movie/movie.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
     MovieListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
