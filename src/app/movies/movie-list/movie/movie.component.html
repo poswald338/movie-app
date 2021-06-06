@@ -1,10 +1,12 @@
 <a
-  href="#"
+  [routerLink]="[index]"
   class="list-group-item clearfix">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ movie.name }} </h4>
+    <h4 class="list-group-item-heading" style="text-transform: uppercase;">{{ movie.name }} </h4>
     <p class ="list-group-item-text">{{ movie.description }}</p>
-    <p class = "list-group-item-text">{{movie.runTime}}min</p>
+    <br>
+    <p class="list-group-item-text"
+      style="font-style: italic;">{{movie.runTime}}min</p>
   </div>
   <span class="pull-right">
     <img

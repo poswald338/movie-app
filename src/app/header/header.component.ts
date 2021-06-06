@@ -18,14 +18,4 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
-  onSelectMovies() {
-    this.moviesClicked = !this.moviesClicked
-    this.showMovies.emit(this.moviesClicked);
-  }
-
-  onSelectWatchlist() {
-    this.watchListClicked = !this.watchListClicked
-    this.showWatchlist.emit(this.watchListClicked);
-  }
-
 }

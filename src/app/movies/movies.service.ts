@@ -9,7 +9,7 @@ export class MoviesService {
   private movies: Movie[] = [
     new Movie(
       'Lord of the Rings',
-      'Can Frodo and Sam destry the all powerful ring?',
+      'Can Frodo and Sam destroy the all powerful ring?',
       228,
       'https://cdn.pixabay.com/photo/2018/08/16/19/56/wedding-rings-3611277_1280.jpg'
     ),
@@ -32,6 +32,6 @@ export class MoviesService {
   }
 
   getmovies() {
-    return this.movies;
+    return this.movies.slice();
   }
 };

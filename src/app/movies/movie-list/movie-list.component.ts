@@ -13,7 +13,6 @@ export class MovieListComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit(): void {
-    debugger
     this.movies = this.moviesService.getmovies();
   }
 
