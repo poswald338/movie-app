@@ -11,6 +11,10 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieNewComponent } from './movies/movie-new/movie-new.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
+import { FormsModule } from '@angular/forms';
+import { MovieStartComponent } from './movies/movie-start/movie-start.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { ShortenPipe } from './shared/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,15 @@ import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
     MovieDetailComponent,
     MovieListComponent,
     MovieNewComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    MovieStartComponent,
+    DropdownDirective,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

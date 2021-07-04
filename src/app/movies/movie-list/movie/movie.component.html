@@ -3,7 +3,7 @@
   class="list-group-item clearfix">
   <div class="pull-left">
     <h4 class="list-group-item-heading" style="text-transform: uppercase;">{{ movie.name }} </h4>
-    <p class ="list-group-item-text">{{ movie.description }}</p>
+    <p class ="list-group-item-text">{{ movie.description | shorten: 30 }}</p>
     <br>
     <p class="list-group-item-text"
       style="font-style: italic;">{{movie.runTime}}min</p>
@@ -12,7 +12,7 @@
     <img
     [src]="movie.imagePath"
     alt="{{movie.name}}"
-    class="img-responsive"
+    class="img-thumbnail"
     style="max-height: 65px;">
   </span>
 </a>

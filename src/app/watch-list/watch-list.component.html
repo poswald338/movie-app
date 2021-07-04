@@ -1,1 +1,25 @@
-<p>watch-list works!</p>
+<ul class="list-group">
+  <!-- <a
+  class="list-group-item"
+  *ngFor="let movie of movies; let i=index">
+  </a> -->
+  <a
+    *ngFor="let movie of movies; let i=index"
+    class="list-group-item clearfix">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading" style="text-transform: uppercase;">{{ movie.name }} </h4>
+      <p class ="list-group-item-text">{{ movie.description }}</p>
+      <br>
+      <p class="list-group-item-text"
+        style="font-style: italic;">{{movie.runTime}}min</p>
+    </div>
+    <span class="pull-right">
+      <img
+      [src]="movie.imagePath"
+      alt="{{movie.name}}"
+      class="img-thumbnail"
+      style="max-height: 65px;">
+    </span>
+  </a>
+</ul>
+

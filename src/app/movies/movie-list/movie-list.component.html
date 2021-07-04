@@ -1,7 +1,17 @@
-<p>movie-list works!</p>
-<div class="col-xs-12">
-  <app-movie
-  *ngFor="let movieEl of movies; let i = index"
-  [movie]="movieEl"
-  [index]="i"></app-movie>
+<div class="row">
+  <div class="col-xs-12">
+    <p>movie-list works!!</p>
+    <br>
+    <div class="addMovieButton">
+      <button class="btn btn-primary" (click)="onAddMovie()">Add Movie!</button>
+    </div>
+    <br>
+    <div class="col-xs-12">
+      <app-movie
+      *ngFor="let movieEl of movies; let i = index"
+      [movie]="movieEl"
+      [index]="i"></app-movie>
+    </div>
+  </div>
 </div>
+

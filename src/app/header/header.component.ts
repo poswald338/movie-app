@@ -11,11 +11,13 @@ export class HeaderComponent implements OnInit, OnChanges {
   @Input() watchListClicked = false
   @Output() showWatchlist = new EventEmitter<boolean>();
   constructor() { }
+  isOpen = false
 
   ngOnInit(): void {
   }
 
   ngOnChanges() {
   }
+
 
 }

@@ -1,0 +1,8 @@
+.movieNewHeader {
+  /* background-color: rgb(54, 48, 48); */
+  scroll-padding-top: 10px;
+  color: rgb(212, 25, 25);
+  text-align: center;
+  box-shadow: transparent;
+  border-radius: 25px;
+}
