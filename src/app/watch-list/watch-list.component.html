@@ -23,3 +23,38 @@
   </a>
 </ul>
 
+<!-- <div style="border: 2px black;">
+  <div
+  class="card"
+  style="width: 400px; border: 2px solid; text-align: center;"
+  *ngFor="let movie of movies; let i=index">
+    <img
+    [src]="movie.imagePath"
+    alt="{{movie.name}}"
+    class="card-img-top"
+    style="width: 400px; height: 500px;">
+    <div class="card-body">
+      <h4 class="card-title" style="text-transform: uppercase;">{{ movie.name }}</h4>
+      <p class ="card-text">{{ movie.description }}</p>
+      <br>
+      <p class="card-text"
+        style="font-style: italic;">{{movie.runTime}}min</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <button class="btn btn-primary">Go somewhere</button>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container-fluid" *ngFor="let movie of movies; let i=index">
+  <article>
+    <div style="box-shadow: 0 20px 50px rgb(110 0 0 / 100%);">
+    <div class="card" style="width: 400px;">
+      <img class="card-img-top" [src]="movie.imagePath" alt="Card image cap" style="width:400px;height:500px;">
+      <div class="card-body">
+        <h2 class="card-title">{{ movie.name }}</h2>
+        <p class="card-text">{{movie.description}}</p>
+      </div>
+    </div>
+    </div>
+  </article>
+  </div> -->
