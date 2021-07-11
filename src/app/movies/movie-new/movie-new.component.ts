@@ -25,7 +25,8 @@ export class MovieNewComponent implements OnInit {
       this.newMovieForm.value['movieName'],
       this.newMovieForm.value['description'],
       this.newMovieForm.value['runtime'],
-      this.newMovieForm.value['imgURL']
+      this.newMovieForm.value['imgURL'],
+      false
       );
 
       this.moviesService.addMovie(newMovie)

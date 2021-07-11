@@ -1,9 +1,13 @@
-<ul class="list-group">
+<app-watch-list-movie
+*ngFor="let movie of movies; let i = index"
+[movie]="movie"
+[index]="i"></app-watch-list-movie>
+<!-- <ul class="list-group"> -->
   <!-- <a
   class="list-group-item"
   *ngFor="let movie of movies; let i=index">
   </a> -->
-  <a
+  <!-- <a
     *ngFor="let movie of movies; let i=index"
     class="list-group-item clearfix">
     <div class="pull-left">
@@ -21,7 +25,7 @@
       style="max-height: 65px;">
     </span>
   </a>
-</ul>
+</ul> -->
 
 <!-- <div style="border: 2px black;">
   <div

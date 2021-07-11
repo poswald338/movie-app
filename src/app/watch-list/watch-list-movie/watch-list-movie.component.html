@@ -1,0 +1,18 @@
+
+<div class="container" style="padding-top: 20px;">
+<div class="card mx-auto" style="width: 18rem; text-align: center;">
+  <img [src]="movie.imagePath" class="card-img-top" alt="{{movie.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{ movie.name }}</h5>
+    <p class="card-text">{{ movie.description | shorten: 30 }}</p>
+    <br>
+    <p class="list-group-item-text"
+    style="font-style: italic; text-align: left;">{{movie.runTime}}min</p>
+    <span>
+      <button class="btn btn-success" (click)="onMovieWatched()">Mark as Watched</button> |
+      <button class="btn btn-danger" (click)="onRemove()">Remove</button>
+    </span>
+  </div>
+</div>
+</div>
+<app-review [starRating]="rating" *ngIf="movieWatched" (close)="onMovieReviewed()"></app-review>
