@@ -1,6 +1,6 @@
 <a
-  [routerLink]="[index]"
-  class="list-group-item clearfix">
+  [routerLink]= "[index]"
+  class="list-group-item clearfix text-dark btn">
   <div class="pull-left">
     <h4 class="list-group-item-heading" style="text-transform: uppercase;">{{ movie.name }} </h4>
     <p class ="list-group-item-text">{{ movie.description | shorten: 30 }}</p>
@@ -12,7 +12,17 @@
     <img
     [src]="movie.imagePath"
     alt="{{movie.name}}"
-    class="img-thumbnail"
+    class="img-fluid img-thumbnail"
     style="max-height: 65px;">
   </span>
 </a>
+
+
+<div class="card mx-auto" style="width: 18rem; text-align: center;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

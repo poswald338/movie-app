@@ -6,11 +6,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnChanges {
-  @Input() moviesClicked = false
-  @Output() showMovies = new EventEmitter<boolean>();
-  @Input() watchListClicked = false
-  @Output() showWatchlist = new EventEmitter<boolean>();
-  constructor() { }
+
   isOpen = false
 
   ngOnInit(): void {

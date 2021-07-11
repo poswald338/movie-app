@@ -1,0 +1,8 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="review-box">
+  <p>What did you think?!</p> <br>
+  <ngb-rating [max]="5" [(rate)]="starRating"></ngb-rating>
+  <div class="review-box-actions">
+    <button class="btn btn-primary" (click)="onClose()">Close</button>
+  </div>
+</div>

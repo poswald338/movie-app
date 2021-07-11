@@ -1,0 +1,10 @@
+<div class="col-xs-12">
+  <div style="text-align: center;">
+    <h2>Wow! Look at all of the Movies you've watched!</h2>
+  </div>
+</div><hr>
+
+<app-movie *ngFor="let movieEl of movies; let i = index"
+[movie]="movieEl"
+[index]="i"></app-movie>
+
