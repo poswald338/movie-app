@@ -1,5 +1,40 @@
-<app-watch-list-movie
+<!-- <app-watch-list-movie
 *ngFor="let movie of movies; let i = index"
 [movie]="movie"
-[index]="i"></app-watch-list-movie>
+[index]="i"></app-watch-list-movie> -->
+<div class="container" style="padding-block: 20px;">
+  <ngb-carousel
+  #ngcarousel
+  [showNavigationArrows]="false"
+  [showNavigationIndicators]="false"
+  interval="5000"
+  [keyboard]="true"
+  [pauseOnHover]="true"
+  [wrap]="true">
+    <ng-template *ngFor="let movie of movies; let i = index" ngbSlide>
+      <div class="container" style="padding-top: 20px;">
+        <div class="card mx-auto" style="width: 350px; text-align: center;">
+          <img [src]="movie.imagePath" class="card-img-top" alt="{{movie.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.name }}</h5>
+            <p class="card-text">{{ movie.description | shorten: 30 }}</p>
+            <br>
+            <p class="list-group-item-text"
+            style="font-style: italic; text-align: left;">{{movie.runTime}}min</p>
+            <span>
+              <button class="btn btn-success" (click)="onMovieWatched(i)">Mark as Watched</button> |
+              <button class="btn btn-danger" (click)="onRemove(i)">Remove</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <app-review [starRating]="rating" *ngIf="movieWatched" (close)="onMovieReviewed(i)"></app-review>
+    </ng-template>
+  </ngb-carousel>
+  <div class="text-center">
+    <button class="btn btn-outline-secondary" (click)="getToPrev()">Prev</button> |
+    <button class="btn btn-outline-secondary" (click)="goToNext()">Next</button>
+  </div>
+</div>
+
 
