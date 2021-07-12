@@ -2,3 +2,6 @@ h4 {
   font-weight: bold;
 }
 
+.card {
+  box-shadow: 0 2px 8px rgba(136, 3, 3, 0.259);
+}

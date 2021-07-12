@@ -30,7 +30,6 @@ export class WatchListMovieComponent implements OnInit {
 
   onMovieReviewed() {
     this.movieWatched = false;
-    this.router.navigate(['/watch-again']);
     this.watchListService.deleteMovie(this.index);
   }
 

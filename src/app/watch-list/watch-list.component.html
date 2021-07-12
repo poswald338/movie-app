@@ -1,64 +1,40 @@
-<app-watch-list-movie
+<!-- <app-watch-list-movie
 *ngFor="let movie of movies; let i = index"
 [movie]="movie"
-[index]="i"></app-watch-list-movie>
-<!-- <ul class="list-group"> -->
-  <!-- <a
-  class="list-group-item"
-  *ngFor="let movie of movies; let i=index">
-  </a> -->
-  <!-- <a
-    *ngFor="let movie of movies; let i=index"
-    class="list-group-item clearfix">
-    <div class="pull-left">
-      <h4 class="list-group-item-heading" style="text-transform: uppercase;">{{ movie.name }} </h4>
-      <p class ="list-group-item-text">{{ movie.description }}</p>
-      <br>
-      <p class="list-group-item-text"
-        style="font-style: italic;">{{movie.runTime}}min</p>
-    </div>
-    <span class="pull-right">
-      <img
-      [src]="movie.imagePath"
-      alt="{{movie.name}}"
-      class="img-thumbnail"
-      style="max-height: 65px;">
-    </span>
-  </a>
-</ul> -->
-
-<!-- <div style="border: 2px black;">
-  <div
-  class="card"
-  style="width: 400px; border: 2px solid; text-align: center;"
-  *ngFor="let movie of movies; let i=index">
-    <img
-    [src]="movie.imagePath"
-    alt="{{movie.name}}"
-    class="card-img-top"
-    style="width: 400px; height: 500px;">
-    <div class="card-body">
-      <h4 class="card-title" style="text-transform: uppercase;">{{ movie.name }}</h4>
-      <p class ="card-text">{{ movie.description }}</p>
-      <br>
-      <p class="card-text"
-        style="font-style: italic;">{{movie.runTime}}min</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-      <button class="btn btn-primary">Go somewhere</button>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="container-fluid" *ngFor="let movie of movies; let i=index">
-  <article>
-    <div style="box-shadow: 0 20px 50px rgb(110 0 0 / 100%);">
-    <div class="card" style="width: 400px;">
-      <img class="card-img-top" [src]="movie.imagePath" alt="Card image cap" style="width:400px;height:500px;">
-      <div class="card-body">
-        <h2 class="card-title">{{ movie.name }}</h2>
-        <p class="card-text">{{movie.description}}</p>
+[index]="i"></app-watch-list-movie> -->
+<div class="container" style="padding-block: 20px;">
+  <ngb-carousel
+  #ngcarousel
+  [showNavigationArrows]="false"
+  [showNavigationIndicators]="false"
+  interval="5000"
+  [keyboard]="true"
+  [pauseOnHover]="true"
+  [wrap]="true">
+    <ng-template *ngFor="let movie of movies; let i = index" ngbSlide>
+      <div class="container" style="padding-top: 20px;">
+        <div class="card mx-auto" style="width: 350px; text-align: center;">
+          <img [src]="movie.imagePath" class="card-img-top" alt="{{movie.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.name }}</h5>
+            <p class="card-text">{{ movie.description | shorten: 30 }}</p>
+            <br>
+            <p class="list-group-item-text"
+            style="font-style: italic; text-align: left;">{{movie.runTime}}min</p>
+            <span>
+              <button class="btn btn-success" (click)="onMovieWatched(i)">Mark as Watched</button> |
+              <button class="btn btn-danger" (click)="onRemove(i)">Remove</button>
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </article>
-  </div> -->
+      <app-review [starRating]="rating" *ngIf="movieWatched" (close)="onMovieReviewed(i)"></app-review>
+    </ng-template>
+  </ngb-carousel>
+  <div class="text-center">
+    <button class="btn btn-outline-secondary" (click)="getToPrev()">Prev</button> |
+    <button class="btn btn-outline-secondary" (click)="goToNext()">Next</button>
+  </div>
+</div>
+
+

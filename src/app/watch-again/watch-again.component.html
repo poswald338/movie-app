@@ -4,7 +4,12 @@
   </div>
 </div><hr>
 
-<app-movie *ngFor="let movieEl of movies; let i = index"
+<!-- <app-movie *ngFor="let movieEl of movies; let i = index"
 [movie]="movieEl"
-[index]="i"></app-movie>
+[index]="i"></app-movie> -->
+
+<app-watch-list-movie
+*ngFor="let movie of movies; let i = index"
+[movie]="movie"
+[index]="i"></app-watch-list-movie>
 
