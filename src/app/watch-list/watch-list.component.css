@@ -46,9 +46,3 @@ ngb-carousel {
   z-index: 20;
 }
 
-.carousel-control-prev-icon{
-  background-image: url('https://apufpel.com.br/assets/img/seta_prim.png')
-}
-.carousel-control-next-icon{
- background-image: url('https://apufpel.com.br/assets/img/seta_ult.png')
-}

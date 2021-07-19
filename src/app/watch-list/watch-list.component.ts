@@ -20,7 +20,7 @@ export class WatchListComponent implements OnInit {
   ngOnInit(): void {
     this.movies = this.watchListService.getMovies()
     this.watchListService.watchListMoviesChanged.subscribe(movies => {
-      this.movies = movies;
+        this.movies = movies;
     })
   }
 

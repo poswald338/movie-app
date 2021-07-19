@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AuthComponent } from './auth/auth.component';
 import { HeaderComponent } from './header/header.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'watch-list', component: WatchListComponent },
-  { path: 'watch-again', component: WatchAgainComponent}
+  { path: 'watch-again', component: WatchAgainComponent},
+  { path: 'auth', component: AuthComponent}
 ];
 
 @NgModule({
