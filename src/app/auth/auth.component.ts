@@ -11,6 +11,7 @@ export class AuthComponent implements OnInit {
   // @ViewChild('f')signupForm: NgForm
 
   isLoginMode = true
+  isLoading = false
   loginForm: FormGroup;
 
   constructor(private authService: AuthService) { }
@@ -24,6 +25,9 @@ export class AuthComponent implements OnInit {
 
   onLoginSubmit() {
     console.log(this.loginForm)
+    if (!this.loginForm.valid) {
+      return;
+    }
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe(authRes => {
         console.log(authRes)
@@ -37,6 +41,7 @@ export class AuthComponent implements OnInit {
     if (!form.valid) {
       return;
     }
+    this.isLoading = true
     this.authService.signUp(
       form.value.email,
       form.value.password,
@@ -47,8 +52,10 @@ export class AuthComponent implements OnInit {
       )
       .subscribe(authRes => {
         console.log(authRes)
+        this.isLoading = false
       }), (error => {
         console.log(error)
+        this.isLoading = false
       })
 
     form.reset()

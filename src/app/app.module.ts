@@ -20,6 +20,7 @@ import { ReviewComponent } from './shared/review/review.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WatchAgainComponent } from './watch-again/watch-again.component';
 import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AuthComponent } from './auth/auth.component';
     WatchListMovieComponent,
     ReviewComponent,
     WatchAgainComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

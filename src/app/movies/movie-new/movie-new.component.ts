@@ -20,18 +20,18 @@ export class MovieNewComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.newMovieForm);
-    const newMovie = new Movie(
-      this.newMovieForm.value['movieName'],
-      this.newMovieForm.value['description'],
-      this.newMovieForm.value['runtime'],
-      this.newMovieForm.value['imgURL'],
-      false
-      );
+    // console.log(this.newMovieForm);
+    // const newMovie = new Movie(
+    //   this.newMovieForm.value['movieName'],
+    //   this.newMovieForm.value['description'],
+    //   this.newMovieForm.value['runtime'],
+    //   this.newMovieForm.value['imgURL'],
+    //   false
+    //   );
 
-      this.moviesService.addMovie(newMovie)
+    //   this.moviesService.addMovie(newMovie)
 
-    this.onCancel(this.newMovieForm)
+    // this.onCancel(this.newMovieForm)
   }
 
   onClear(form: NgForm) {

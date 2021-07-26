@@ -10,6 +10,8 @@
 
 <app-watch-list-movie
 *ngFor="let movie of movies; let i = index"
-[movie]="movie"
-[index]="i"></app-watch-list-movie>
+[imagePath]="movie.imagePath"
+[index]="i"
+[description]="movie.description"
+[title]="movie.name"></app-watch-list-movie>
 

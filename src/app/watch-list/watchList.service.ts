@@ -9,26 +9,8 @@ export class WatchListService {
   watchedMoviesChanged = new Subject<Movie[]>()
   constructor(private moviesService: MoviesService) {}
 
-  private watchListMovies: Movie[] = [
-    new Movie(
-      'Test Movie',
-      'This is a test.',
-      123,
-      'testimagepath',
-      false
-    )
-  ]
-
-  private watchedMovies: Movie[] = [
-    new Movie(
-      'Test Title',
-      'Some content for a test description',
-      4,
-      'https://media.istockphoto.com/photos/wreck-it-ralph-picture-id476595500?s=612x612',
-      true
-    )
-  ];
-
+  private watchListMovies: Movie[] = []
+  private watchedMovies: Movie[] = [];
 
   addMovie(id) {
     this.watchListMovies.push(this.moviesService.getmovie(id));
@@ -37,7 +19,17 @@ export class WatchListService {
   }
 
   addWatchedMovie(index) {
-    this.watchedMovies.push(this.getMovie(index))
+    debugger
+    let id =this.watchListMovies[index].movie_id
+    let match = this.watchedMovies.find(movie => {
+      movie.movie_id === id
+    })
+
+    if (match == null || match == undefined) {
+      this.watchedMovies.push(this.getMovie(index))
+    } else {
+      return this.watchedMovies;
+    }
     this.watchedMoviesChanged.next(this.watchedMovies.slice())
   }
 

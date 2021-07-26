@@ -3,5 +3,10 @@ h4 {
 }
 
 .card {
-  box-shadow: 0 2px 8px rgba(136, 3, 3, 0.259);
+  box-shadow: 0 8px 16px rgba(221, 9, 9, 0.259);
+  width: 18rem;
+  text-align: center;
+}
+.container {
+  background-color: forestgreen;
 }

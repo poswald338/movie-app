@@ -1,15 +1,15 @@
 
 <div class="container" style="padding-top: 20px;">
-  <div class="card mx-auto" style="width: 350px; text-align: center;">
-    <img [src]="movie.imagePath" class="card-img-top" alt="{{movie.name}}">
+  <div class="card mx-auto">
+    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ imagePath }}" class="card-img-top" alt="{{title}}">
     <div class="card-body">
-      <h5 class="card-title">{{ movie.name }}</h5>
-      <p class="card-text">{{ movie.description | shorten: 30 }}</p>
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ description | shorten: 30 }}</p>
       <br>
       <p class="list-group-item-text"
-      style="font-style: italic; text-align: left;">{{movie.runTime}}min</p>
+      style="font-style: italic; text-align: left;">min</p>
       <span>
-        <button class="btn btn-success" (click)="onMovieWatched()">Mark as Watched</button> |
+        <!-- <button class="btn btn-success" (click)="onMovieWatched()">Mark as Watched</button> | -->
         <button class="btn btn-danger" (click)="onRemove()">Remove</button>
       </span>
     </div>

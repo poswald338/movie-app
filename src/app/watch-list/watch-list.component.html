@@ -5,7 +5,7 @@
 <div class="container" style="padding-block: 20px;">
   <ngb-carousel
   #ngcarousel
-  [showNavigationArrows]="false"
+  [showNavigationArrows]="true"
   [showNavigationIndicators]="false"
   interval="3000"
   [keyboard]="true"
@@ -14,13 +14,9 @@
     <ng-template *ngFor="let movie of movies; let i = index" ngbSlide>
       <div class="container" style="padding-top: 20px;">
         <div class="card mx-auto" style="width: 350px; text-align: center;">
-          <img [src]="movie.imagePath" class="card-img-top" alt="{{movie.name}}">
+          <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ movie.imagePath }}" class="card-img-top" alt="{{movie.name}}">
           <div class="card-body">
             <h5 class="card-title">{{ movie.name }}</h5>
-            <p class="card-text">{{ movie.description | shorten: 30 }}</p>
-            <br>
-            <p class="list-group-item-text"
-            style="font-style: italic; text-align: left;">{{movie.runTime}}min</p>
             <span>
               <button class="btn btn-success" (click)="onMovieWatched(i)">Mark as Watched</button> |
               <button class="btn btn-danger" (click)="onRemove(i)">Remove</button>

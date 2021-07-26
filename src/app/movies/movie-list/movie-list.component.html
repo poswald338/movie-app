@@ -3,14 +3,16 @@
     <h3>Select a Movie to View More!</h3>
     <br>
     <div class="addMovieButton">
-      <button class="btn btn-primary" (click)="onAddMovie()">Add Movie!</button>
+      <button class="btn btn-primary" (click)="onSetMovies()">Add Movie!</button>
     </div>
     <br>
     <div class="col-xs-12">
       <app-movie
-      *ngFor="let movieEl of movies; let i = index"
-      [movie]="movieEl"
-      [index]="i"></app-movie>
+      *ngFor="let movie of movies; let i = index"
+      [imagePath]="movie.imagePath"
+      [id]="i"
+      [title]="movie.name"
+      [description]="movie.description"></app-movie>
     </div>
   </div>
 </div>

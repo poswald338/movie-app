@@ -2,41 +2,35 @@ import { Movie } from "./movie.model";
 import { Injectable } from '@angular/core';
 import { Subject } from "rxjs";
 import { WatchListService } from "../watch-list/watchList.service";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  constructor(){}
+
+  constructor(private http: HttpClient){}
   moviesChanged = new Subject<Movie[]>()
   watchedMoviesChanged = new Subject<Movie[]>()
 
-  private movies: Movie[] = [
-    new Movie(
-      'Lord of the Rings',
-      'Can Frodo and Sam destroy the ring?',
-      228,
-      'https://cdn.pixabay.com/photo/2018/08/16/19/56/wedding-rings-3611277_1280.jpg',
-      false
-    ),
-    new Movie(
-      'Dodgeball',
-    'A sport you never knew you loved to watch.',
-    122,
-    'https://media.istockphoto.com/photos/dodgeballs-ready-for-pe-class-picture-id897819430',
-    false
-    ),
-    new Movie(
-      'Wreck It Ralph',
-      'Ralph is not such a bad guy',
-      94,
-      'https://media.istockphoto.com/photos/wreck-it-ralph-picture-id476595500?s=612x612',
-      false
-    )
-  ];
+  private movies: Movie[] = [];
 
-  getmovie(index: number) {
-    return this.movies[index];
+  getmovie(id) {
+    return this.movies[id];
+  }
+
+  getPopularMovies() {
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=(1,3)'
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+      console.log(this.movies)
+    })
   }
 
   getmovies() {
