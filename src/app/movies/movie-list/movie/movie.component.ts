@@ -11,7 +11,7 @@ export class MovieComponent implements OnInit {
   @Input() imagePath: string;
   @Input() title: string;
   @Input() description: string;
-  @Input() id: number;
+  @Input() index: number;
 
   constructor(
     private watchListService: WatchListService
@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
   }
 
   onAddWatchlist() {
-    this.watchListService.addMovie(this.id)
+    this.watchListService.addMovie(this.index)
   }
 
 }

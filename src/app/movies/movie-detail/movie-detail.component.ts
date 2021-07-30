@@ -39,7 +39,7 @@ export class MovieDetailComponent implements OnInit {
 
   onDeleteMovie() {
     const id = this.movieId;
-    this.moviesService.deleteMovie(id);
+    // this.moviesService.deleteMovie(id);
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Movie } from '../movie.model';
 import { MoviesService } from '../movies.service';
@@ -15,21 +16,45 @@ export class MovieListComponent implements OnInit {
 
   constructor(private moviesService: MoviesService,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private config: NgbDropdownConfig
+              ) {
+                config.placement = "right";
+                config.autoClose = true;
+              }
 
   ngOnInit(): void {
-    // this.movies = this.moviesService.getmovies();
-    // this.moviesService.moviesChanged.subscribe(movies => {
-    //   this.movies = movies;
-    // })
-    this.moviesService.getPopularMovies();
+    this.getPop()
     this.movieSub = this.moviesService.moviesChanged.subscribe(
       (movies: Movie[]) => {
         this.movies = movies
       }
     );
-    this.movies = this.moviesService.getmovies();
   }
+
+  getPop() {
+    this.moviesService.getPopularMovies();
+    setTimeout(() => {
+      this.onSetMovies();
+    }, 300)
+  }
+
+  getInTheatre() {
+    this.moviesService.getTheatre();
+    setTimeout(() => {
+      this.onSetMovies();
+    }, 300)
+    console.log(this.movies)
+  }
+
+  getTopRated() {
+    this.moviesService.getRated();
+    setTimeout(() => {
+      this.onSetMovies();
+    }, 300)
+    console.log(this.movies)
+  }
+
 
   onAddMovie() {
     this.router.navigate(['new'], {relativeTo: this.route})
@@ -37,6 +62,24 @@ export class MovieListComponent implements OnInit {
 
   onSetMovies() {
     this.movies = this.moviesService.getmovies();
+  }
+
+  getNextPage() {
+    this.moviesService.getNextPop();
+    setTimeout(() => {
+      this.onSetMovies();
+    }, 300)
+  }
+
+  getPrevPage() {
+    this.moviesService.getPrevPop();
+    setTimeout(() => {
+      this.onSetMovies();
+    }, 300)
+  }
+
+  ngOnDestroy() {
+    this.movieSub.unsubscribe()
   }
 
 }

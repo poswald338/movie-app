@@ -2,11 +2,12 @@ h4 {
   font-weight: bold;
 }
 
-.card {
+/* .card {
   box-shadow: 0 8px 16px rgba(221, 9, 9, 0.259);
   width: 18rem;
   text-align: center;
-}
-.container {
-  background-color: forestgreen;
+  display: flex
+} */
+.container-fluid {
+  padding: 20px;
 }

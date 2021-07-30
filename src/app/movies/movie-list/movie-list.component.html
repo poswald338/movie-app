@@ -1,16 +1,26 @@
 <div class="row">
-  <div class="col-xs-12 mx-auto">
-    <h3>Select a Movie to View More!</h3>
+  <div class="col-xs-12 mx-auto" style="text-align: center;">
+    <h2>Select a Movie to View More!</h2>
     <br>
-    <div class="addMovieButton">
-      <button class="btn btn-primary" (click)="onSetMovies()">Add Movie!</button>
-    </div>
+    <div class="header">
+      <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-secondary" id="dropdown" ngbDropdownToggle>Movie List Filter</button>
+          <div ngbDropdownMenu aria-labelledby="dropdown">
+            <button ngbDropdownItem (click)="getPop()">Popular Movies</button>
+            <button ngbDropdownItem (click)="getInTheatre()">In Theatres</button>
+            <button ngbDropdownItem (click)="getTopRated()">Top Rated</button>
+          </div> <br>
+          <div style="padding-top: 20px;">
+          <button class="btn btn-primary" (click)="getPrevPage()">Previous</button> |
+          <button class="btn btn-primary" (click)="getNextPage()">Next</button>
+        </div>
+      </div>
     <br>
-    <div class="col-xs-12">
+    <div class="container-fluid">
       <app-movie
       *ngFor="let movie of movies; let i = index"
       [imagePath]="movie.imagePath"
-      [id]="i"
+      [index]="i"
       [title]="movie.name"
       [description]="movie.description"></app-movie>
     </div>

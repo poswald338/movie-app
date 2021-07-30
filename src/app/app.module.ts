@@ -12,7 +12,6 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MovieNewComponent } from './movies/movie-new/movie-new.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MovieStartComponent } from './movies/movie-start/movie-start.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShortenPipe } from './shared/shorten.pipe';
 import { WatchListMovieComponent } from './watch-list/watch-list-movie/watch-list-movie.component';
@@ -32,7 +31,6 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     MovieDetailComponent,
     MovieListComponent,
     MovieNewComponent,
-    MovieStartComponent,
     DropdownDirective,
     ShortenPipe,
     WatchListMovieComponent,

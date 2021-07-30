@@ -1,12 +1,10 @@
-<div class="container" style="padding-top: 20px;">
+<div class="container-fluid">
   <div class="card mx-auto">
     <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ imagePath }}" class="card-img-top" alt="{{title}}">
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{ description | shorten: 120}}</p>
       <br>
-      <!-- <p class="list-group-item-text"
-      style="font-style: italic; text-align: left;">min</p> -->
       <span>
         <button class="btn btn-success" (click)="onAddWatchlist()">Add To Watchlist</button>
       </span>

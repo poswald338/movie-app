@@ -12,23 +12,28 @@ export class WatchListService {
   private watchListMovies: Movie[] = []
   private watchedMovies: Movie[] = [];
 
-  addMovie(id) {
-    this.watchListMovies.push(this.moviesService.getmovie(id));
+  addMovie(index) {
+    let id = this.moviesService.getmovie(index).movie_id
+
+    if (this.watchListMovies.find(o => o.movie_id == id)) {
+      return this.watchListMovies;
+    } else {
+      this.watchListMovies.push(this.moviesService.getmovie(index));
+    }
     this.watchListMoviesChanged.next(this.watchListMovies.slice())
-    console.log(this.watchListMovies);
+
+    // this.watchListMovies.push(this.moviesService.getmovie(index));
+    // this.watchListMoviesChanged.next(this.watchListMovies.slice())
+    // console.log(this.watchListMovies);
   }
 
   addWatchedMovie(index) {
-    debugger
-    let id =this.watchListMovies[index].movie_id
-    let match = this.watchedMovies.find(movie => {
-      movie.movie_id === id
-    })
+    let id = this.watchListMovies[index].movie_id
 
-    if (match == null || match == undefined) {
-      this.watchedMovies.push(this.getMovie(index))
-    } else {
+    if (this.watchedMovies.find(o => o.movie_id == id)) {
       return this.watchedMovies;
+    } else {
+      this.watchedMovies.push(this.getMovie(index))
     }
     this.watchedMoviesChanged.next(this.watchedMovies.slice())
   }
