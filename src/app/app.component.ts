@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',

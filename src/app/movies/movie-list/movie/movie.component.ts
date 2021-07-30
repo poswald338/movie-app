@@ -8,7 +8,9 @@ import { Movie } from '../../movie.model';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-  @Input() movie: Movie;
+  @Input() imagePath: string;
+  @Input() title: string;
+  @Input() description: string;
   @Input() index: number;
 
   constructor(
@@ -19,8 +21,7 @@ export class MovieComponent implements OnInit {
   }
 
   onAddWatchlist() {
-    const id = this.index;
-    this.watchListService.addMovie(id)
+    this.watchListService.addMovie(this.index)
   }
 
 }

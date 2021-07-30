@@ -1,34 +1,12 @@
-<!-- <a
-  [routerLink]= "[index]"
-  class="list-group-item clearfix text-dark btn">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading" style="text-transform: uppercase;">{{ movie.name }} </h4>
-    <p class ="list-group-item-text">{{ movie.description | shorten: 30 }}</p>
-    <br>
-    <p class="list-group-item-text"
-      style="font-style: italic;">{{movie.runTime}}min</p>
-  </div>
-  <span class="pull-right">
-    <img
-    [src]="movie.imagePath"
-    alt="{{movie.name}}"
-    class="img-fluid img-thumbnail"
-    style="max-height: 65px;">
-  </span>
-</a> -->
-
-<div class="container" style="padding-top: 20px;">
-  <div class="card mx-auto" style="width: 18rem; text-align: center;">
-    <img [src]="movie.imagePath" class="card-img-top" alt="{{movie.name}}">
+<div class="container-fluid">
+  <div class="card mx-auto">
+    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ imagePath }}" class="card-img-top" alt="{{title}}">
     <div class="card-body">
-      <h5 class="card-title">{{ movie.name }}</h5>
-      <p class="card-text">{{ movie.description | shorten: 30 }}</p>
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ description | shorten: 120}}</p>
       <br>
-      <p class="list-group-item-text"
-      style="font-style: italic; text-align: left;">{{movie.runTime}}min</p>
       <span>
-        <!-- <button class="btn btn-success" (click)="onDeleteMovie()">Mark as Watched</button> | -->
-        <button class="btn btn-danger" (click)="onAddWatchlist()">Add To Watchlist</button>
+        <button class="btn btn-success" (click)="onAddWatchlist()">Add To Watchlist</button>
       </span>
     </div>
   </div>

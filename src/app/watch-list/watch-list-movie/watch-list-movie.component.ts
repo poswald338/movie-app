@@ -10,7 +10,9 @@ import { WatchListService } from '../watchList.service';
 })
 export class WatchListMovieComponent implements OnInit {
 
-  @Input() movie: Movie;
+  @Input() imagePath: string;
+  @Input() title: string;
+  @Input() description: string;
   @Input() index: number;
 
   movieWatched = false;

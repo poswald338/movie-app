@@ -2,40 +2,21 @@ import { Movie } from "./movie.model";
 import { Injectable } from '@angular/core';
 import { Subject } from "rxjs";
 import { WatchListService } from "../watch-list/watchList.service";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  constructor(){}
+
+  constructor(private http: HttpClient){}
+  private pageNumber: number = 1
   moviesChanged = new Subject<Movie[]>()
   watchedMoviesChanged = new Subject<Movie[]>()
 
-  private movies: Movie[] = [
-    new Movie(
-      'Lord of the Rings',
-      'Can Frodo and Sam destroy the ring?',
-      228,
-      'https://cdn.pixabay.com/photo/2018/08/16/19/56/wedding-rings-3611277_1280.jpg',
-      false
-    ),
-    new Movie(
-      'Dodgeball',
-    'A sport you never knew you loved to watch.',
-    122,
-    'https://media.istockphoto.com/photos/dodgeballs-ready-for-pe-class-picture-id897819430',
-    false
-    ),
-    new Movie(
-      'Wreck It Ralph',
-      'Ralph is not such a bad guy',
-      94,
-      'https://media.istockphoto.com/photos/wreck-it-ralph-picture-id476595500?s=612x612',
-      false
-    )
-  ];
+  private movies: Movie[] = [];
 
-  getmovie(index: number) {
+  getmovie(index) {
     return this.movies[index];
   }
 
@@ -43,16 +24,141 @@ export class MoviesService {
     return this.movies.slice();
   }
 
-  addMovie(newMovie: Movie) {
-    this.movies.push(newMovie);
-    this.moviesChanged.next(this.movies.slice())
+  getPopularMovies() {
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
   }
 
-  deleteMovie(id: number) {
-    this.movies.splice(id,1);
-    this.moviesChanged.next(this.movies.slice());
+  //retireves the next page of movies
+  getNextPop() {
+    this.pageNumber = this.pageNumber + 1;
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
   }
 
-  addWatchList(id: number) {
+  //retireves the previous page of movies
+  getPrevPop() {
+    this.pageNumber = this.pageNumber - 1;
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
   }
+
+  getTheatre() {
+    this.pageNumber = 1
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
+  }
+
+  //retireves the next page of movies
+  getNextTheatre() {
+    this.pageNumber = this.pageNumber + 1;
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
+  }
+
+  //retireves the previous page of movies
+  getPrevTheatre() {
+    this.pageNumber = this.pageNumber - 1;
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
+  }
+
+  getRated() {
+    this.pageNumber = 1
+    return this.http.get('https://api.themoviedb.org/3/movie/top_rated?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
+  }
+
+  //retireves the next page of movies
+  getNextRated() {
+    this.pageNumber = this.pageNumber + 1;
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
+  }
+
+  //retireves the previous page of movies
+  getPrevRated() {
+    this.pageNumber = this.pageNumber - 1;
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=170aa506ce3c8bccc926c0cdf08ef95a&language=en-US&page=' + String(this.pageNumber)
+    ).subscribe((data: { results: any }) => {
+      let output;
+      if (data) {
+        output = data.results;
+        this.movies = output.map((x: { [x: string]: any }) => new Movie(x));
+      } else {
+        this.movies = [];
+      }
+    })
+  }
+
+
+  // addMovie(newMovie: Movie) {
+  //   this.movies.push(newMovie);
+  //   this.moviesChanged.next(this.movies.slice())
+  // }
+
 };

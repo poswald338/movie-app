@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 import { Movie } from '../movies/movie.model';
 import { WatchListService } from './watchList.service';
 
@@ -8,26 +10,27 @@ import { WatchListService } from './watchList.service';
   templateUrl: './watch-list.component.html',
   styleUrls: ['./watch-list.component.css']
 })
-export class WatchListComponent implements OnInit {
+export class WatchListComponent implements OnInit, OnDestroy {
   movies: Movie[];
   movieWatched = false;
   rating = 0;
+  private subs: Subscription;
 
 
-  constructor(private watchListService: WatchListService) { }
+  constructor(private watchListService: WatchListService, private router: Router) { }
   @ViewChild('ngcarousel', { static: true }) ngCarousel: NgbCarousel;
 
   ngOnInit(): void {
     this.movies = this.watchListService.getMovies()
-    this.watchListService.watchListMoviesChanged.subscribe(movies => {
-      this.movies = movies;
+    console.log(this.movies)
+    this.subs = this.watchListService.watchListMoviesChanged.subscribe(movies => {
+        this.movies = movies;
     })
   }
 
   onMovieWatched(index) {
-    this.movieWatched = true;
     this.watchListService.addWatchedMovie(index);
-
+    this.movieWatched = true;
   }
 
   onMovieReviewed(index) {
@@ -45,5 +48,13 @@ export class WatchListComponent implements OnInit {
 
   goToNext () {
     this.ngCarousel.next()
+  }
+
+  viewMovies() {
+    this.router.navigate(['/movies']);
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe()
   }
 }
