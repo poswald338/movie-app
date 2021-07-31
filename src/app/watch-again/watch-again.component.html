@@ -3,11 +3,6 @@
     <h2>Wow! Look at all of the Movies you've watched!</h2>
   </div>
 </div><hr>
-
-<!-- <app-movie *ngFor="let movieEl of movies; let i = index"
-[movie]="movieEl"
-[index]="i"></app-movie> -->
-
 <app-watch-list-movie
 *ngFor="let movie of movies; let i = index"
 [imagePath]="movie.imagePath"

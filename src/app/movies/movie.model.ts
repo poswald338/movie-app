@@ -3,6 +3,7 @@ export class Movie {
   public name: string;
   public description: string;
   public imagePath: string;
+  public rating?: number
 
   constructor ({
     id = 0,
