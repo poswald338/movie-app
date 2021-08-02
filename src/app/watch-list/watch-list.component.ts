@@ -28,8 +28,13 @@ export class WatchListComponent implements OnInit, OnDestroy {
     })
   }
 
-  onMovieWatched(index) {
+  setReview(data, index) {debugger
+    this.watchListService.getMovie(index).rating = data;
+    console.log(this.movies);
     this.watchListService.addWatchedMovie(index);
+  }
+
+  onMovieWatched() {
     this.movieWatched = true;
   }
 

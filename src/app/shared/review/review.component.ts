@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-review',
@@ -6,10 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent {
+  @ViewChild('form') ratingForm: NgForm;
 
   constructor() { }
   @Output() close = new EventEmitter<void>();
+  @Output() rating = new EventEmitter<void>();
   @Input() starRating: number;
+
+  onSubmit() {
+    console.log(this.ratingForm.value);
+    this.rating.emit(this.ratingForm.value)
+    this.onClose();
+  }
 
   onClose(){
     this.close.emit()

@@ -54,4 +54,8 @@ export class WatchListService {
     this.watchListMovies.splice(index, 1);
     this.watchListMoviesChanged.next(this.watchListMovies.slice())
   }
+
+  setReview(rating: number) {
+
+  }
 }

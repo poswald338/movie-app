@@ -4,15 +4,12 @@
     <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{ imagePath }}" class="card-img-top" alt="{{title}}">
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
-      <p class="card-text">{{ description | shorten: 30 }}</p>
-      <br>
-      <p class="list-group-item-text"
-      style="font-style: italic; text-align: left;">min</p>
-      <span>
-        <!-- <button class="btn btn-success" (click)="onMovieWatched()">Mark as Watched</button> | -->
-        <button class="btn btn-danger" (click)="onRemove()">Remove</button>
-      </span>
+      <div>
+        <p>Your Rating:</p>
+        <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="true"></ngb-rating>
+        <br>
+        <button class="btn btn-success" (click)="addToWatchlist()">ADD TO WATCHLIST</button>
+      </div>
     </div>
   </div>
 </div>
-<app-review [starRating]="rating" *ngIf="movieWatched" (close)="onMovieReviewed()"></app-review>

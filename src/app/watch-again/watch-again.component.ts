@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../movies/movie.model';
-import { MoviesService } from '../movies/movies.service';
 import { WatchListService } from '../watch-list/watchList.service';
 
 @Component({
@@ -16,6 +15,7 @@ export class WatchAgainComponent implements OnInit {
 
   ngOnInit(): void {
     this.movies = this.watchListService.getWatchedMovies();
+    console.log(this.movies)
   }
 
 }
