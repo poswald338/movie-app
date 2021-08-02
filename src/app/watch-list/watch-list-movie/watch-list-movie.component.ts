@@ -14,9 +14,9 @@ export class WatchListMovieComponent implements OnInit {
   @Input() title: string;
   @Input() description: string;
   @Input() index: number;
+  @Input() starRating: number;
 
   movieWatched = false;
-  rating = 0;
 
   constructor(private router: Router,
     private watchListService: WatchListService) { }
@@ -37,6 +37,10 @@ export class WatchListMovieComponent implements OnInit {
 
   onRemove() {
     this.watchListService.deleteMovie(this.index)
+  }
+
+  addToWatchlist() {
+    this.watchListService.addMovie(this.index)
   }
 
 }

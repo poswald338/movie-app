@@ -1,5 +1,10 @@
-/* .card {
-  box-shadow: 0 8px 16px rgba(221, 9, 9, 0.259);
-  width: 350px;
-  text-align: center;
-} */
+
+ngb-rating {
+  color: #FFC107;
+  font-size: 50px;
+}
+
+p {
+  font-stretch: extra-expanded;
+  font-weight: bold;
+}
