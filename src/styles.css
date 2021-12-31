@@ -8,8 +8,9 @@ h2 {
 }
 
 .card {
-  box-shadow: 10px 20px 50px rgb(82, 7, 7);
+  box-shadow: -10px 20px 20px rgb(82, 7, 7);
   width: 18rem;
+  /* height: 88vh; */
   text-align: center;
 }
 
