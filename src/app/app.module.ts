@@ -18,8 +18,10 @@ import { WatchListMovieComponent } from './watch-list/watch-list-movie/watch-lis
 import { ReviewComponent } from './shared/review/review.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WatchAgainComponent } from './watch-again/watch-again.component';
-import { AuthComponent } from './auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,10 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     WatchListMovieComponent,
     ReviewComponent,
     WatchAgainComponent,
-    AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    HomeComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

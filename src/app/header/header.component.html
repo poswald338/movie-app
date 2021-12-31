@@ -1,15 +1,16 @@
-<nav class="navbar sticky-top navbar-dark bg-dark">
+<nav *ngIf="show" class="navbar sticky-top navbar-dark bg-dark">
   <div class="col-md-12">
     <div class="row">
         <span class="navbar-brand">
           <img class="d-inline-block align-top" width="45" height="45" src="https://cdn.pixabay.com/photo/2013/07/13/11/26/film-158157_1280.png" alt="Logo">
-          <a class="navbar-brand" style="padding-left: 8px;">Movie Madness!!</a>
+          <a class="navbar-brand" style="padding-left: 8px;">Movie Tracker</a>
         </span>
       <ul class="nav nav-tabs">
-        <li class="nav-item;" routerLinkActive="active"><a class="nav-link text-light" routerLink="">Movies</a></li>
+        <li class="nav-item;" routerLinkActive="active"><a class="nav-link text-light" routerLink="movies">Movies</a></li>
         <li class="nav-item" routerLinkActive="active"><a class="nav-link text-light" routerLink="watch-list">My Watchlist</a></li>
         <li class="nav-item" routerLinkActive="active"><a class="nav-link text-light" routerLink="watch-again">Watch It Again</a></li>
-        <li class="nav-item" routerLinkActive="active"><a class="nav-link text-light" routerLink="auth">Login</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link text-light" routerLink="login">Login</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link text-light" routerLink="signup">signup</a></li>
 
       </ul>
         <!-- <li class="nav-item dropdown ml-auto">

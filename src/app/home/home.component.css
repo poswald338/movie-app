@@ -1,0 +1,24 @@
+.img-container {
+  height: 100vh;
+  width: 100%;
+  margin:auto;
+  background-image: url('https://cdn.pixabay.com/photo/2014/03/25/15/24/movie-296751_1280.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* position: relative; */
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  /* padding-top: 80px; */
+  /* padding-bottom: 80px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

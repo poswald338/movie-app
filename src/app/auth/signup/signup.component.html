@@ -5,41 +5,8 @@
         <app-loading-spinner></app-loading-spinner>
       </div>
       <div *ngIf="!isLoading">
-        <h1 style="text-align: center;">{{isLoginMode ? 'Login' : 'Sign Up'}}</h1> <hr>
-        <form *ngIf="isLoginMode" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
-          <div class="form-group">
-            <label for="email">Email Address:</label>
-            <input
-              type="email"
-              id="email"
-              class="form-control"
-              placeholder="Email"
-              formControlName="email">
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              class="form-control"
-              placeholder="Password"
-              formControlName="password">
-          </div>
-          <div class="form-group form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="rememberUser">
-            <label class="form-check-label" for="rememberUser">Remember Me</label>
-          </div> <br>
-          <div style="text-align: center">
-            <button class="btn btn-success btn-lg" role="submit" style="width: 200px;" [disabled]="!loginForm.valid">Login</button>
-          </div>
-          <div>
-            <p style="text-align: center; padding-top: 10px;">Don't have an account? <a type="button" style="cursor: pointer; color: blue;" (click)="onStatusToggle()">Sign Up</a></p>
-          </div>
-        </form>
-        <form *ngIf="!isLoginMode" (ngSubmit)="onSignUpSubmit(f)" #f="ngForm">
+        <h1 class="text-center mt-4">Sign Up</h1> <hr>
+        <form (ngSubmit)="onSignUpSubmit(f)" #f="ngForm">
           <div class="form-group">
             <label for="email">Email Address:</label>
             <input
@@ -114,10 +81,11 @@
             <button class="btn btn-success btn-lg" role="submit" style="width: 200px;">Sign Up</button>
           </div>
           <div>
-            <p style="text-align: center; padding-top: 10px;">Already have an account? <a type="button" style="cursor: pointer; color: blue;" (click)="onStatusToggle()">Login</a></p>
+            <p style="text-align: center; padding-top: 10px;">Already have an account? <a type="button" style="cursor: pointer; color: blue;" routerLink="login">Login</a></p>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+

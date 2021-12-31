@@ -1,0 +1,45 @@
+<div class="container" style="width: 60%;">
+  <div class="col-md-12">
+    <div class="justify-content-center" style="width: 100;">
+      <div *ngIf="isLoading">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <div *ngIf="!isLoading">
+        <h1 class="text-center mt-4">Login</h1> <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password">
+          </div>
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="rememberUser">
+            <label class="form-check-label" for="rememberUser">Remember Me</label>
+          </div> <br>
+          <div style="text-align: center">
+            <button class="btn btn-success btn-lg" role="submit" style="width: 200px;" [disabled]="!loginForm.valid">Login</button>
+          </div>
+          <div>
+            <p style="text-align: center; padding-top: 10px;">Don't have an account? <a type="button" style="cursor: pointer; color: blue;" routerLink="signup">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

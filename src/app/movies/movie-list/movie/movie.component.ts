@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WatchListService } from 'src/app/watch-list/watchList.service';
+import Swal from 'sweetalert2';
 import { Movie } from '../../movie.model';
 
 @Component({
@@ -22,6 +23,13 @@ export class MovieComponent implements OnInit {
 
   onAddWatchlist() {
     this.watchListService.addMovie(this.index)
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Movie has been added to your watch list!',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }

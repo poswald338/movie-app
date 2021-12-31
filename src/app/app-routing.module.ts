@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { MovieComponent } from './movies/movie-list/movie/movie.component';
@@ -12,7 +14,8 @@ import { WatchAgainComponent } from './watch-again/watch-again.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/movies', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent},
   {
     path: 'movies', component: MoviesComponent,
     children: [
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
   },
   { path: 'watch-list', component: WatchListComponent },
   { path: 'watch-again', component: WatchAgainComponent},
-  { path: 'auth', component: AuthComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignupComponent},
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WatchListService } from 'src/app/watch-list/watchList.service';
+import Swal from 'sweetalert2';
 import { Movie } from '../movie.model';
 import { MoviesService } from '../movies.service';
 
@@ -43,8 +44,15 @@ export class MovieDetailComponent implements OnInit {
     this.router.navigate(['../'], {relativeTo: this.route});
   }
 
-  onAddWatchlist() {
+  onAddWatchlist() {debugger
     const id = this.movieId;
     this.watchListService.addMovie(id)
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
